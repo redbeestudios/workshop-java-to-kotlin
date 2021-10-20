@@ -4,24 +4,23 @@ x-api-key: dso4UMgSxh6cZx4ZfcW946r1ZpPN6Peu4MkUyHna
 content-type: application/json
 
 {
-    "qr_id": "1312312314klsdfs1",
-    "buyer_identification": "12345678",
-    "buyer_gender": "M",
-    "buyer_id": "1",
-    "seller_id": "2",
-    "amount": 1000.00,
-    "installments": 3,
-    "terminal_data": {
-        "establishment_id": "010",
-        "terminal_number": "03305",
-        "trace_number": "111432545",
-        "ticket_number": "11340566",
-        "transaction_datetime": "2021-09-29T07:36:09+0000"
-    },
-    "payment_method_data": {
-        "token": "dGVzdDEyM2tna2ZrMzExMzQ",
-        "security_code": "123"
-    }
+  "qr_id": "13123123141",
+  "buyer_identification": "12345678",
+  "buyer_id": "1",
+  "seller_id": "2",
+  "amount": 1000.00,
+  "installments": 3,
+  "terminal_data": {
+    "establishment_id": "010",
+    "terminal_number": "03305",
+    "trace_number": "111432545",
+    "ticket_number": "11340566",
+    "transaction_datetime": "2021-09-29T07:36:09+0000"
+  },
+  "payment_method_data": {
+    "token": "dGVzdDEyM2tna2ZrMzExMzQ",
+    "security_code": "123"
+  }
 }
 
 > {%
@@ -38,29 +37,28 @@ x-api-key: dso4UMgSxh6cZx4ZfcW946r1ZpPN6Peu4MkUyHna
 content-type: application/json
 
 {
-    "buyer_identification": "12345678",
-    "buyer_gender": "M",
-    "buyer_id": "1",
-    "seller_id": "2",
-    "amount": 1000.00,
-    "installments": 3,
-    "terminal_data": {
-        "establishment_id": "010",
-        "terminal_number": "03305",
-        "trace_number": "111432545",
-        "ticket_number": "11340566",
-        "transaction_datetime": "2021-09-29T07:36:09+0000"
-    },
-    "payment_method_data": {
-        "token": "dGVzdDEyM2tna2ZrMzExMzQ",
-        "security_code": "123"
-    }
+  "buyer_identification": "12345678",
+  "buyer_id": "1",
+  "seller_id": "2",
+  "amount": 1000.00,
+  "installments": 3,
+  "terminal_data": {
+    "establishment_id": "010",
+    "terminal_number": "03305",
+    "trace_number": "111432545",
+    "ticket_number": "11340566",
+    "transaction_datetime": "2021-09-29T07:36:09+0000"
+  },
+  "payment_method_data": {
+    "token": "dGVzdDEyM2tna2ZrMzExMzQ",
+    "security_code": "123"
+  }
 }
 
 > {%
 client.test("qr_id must not be blank", function() {
   client.assert(response.status === 400, "Response status is not 400");
-  client.assert(response.body.message === "qr_id: must not be blank", "Error message is not correct");
+  client.assert(response.body.message === "qr_id must be numeric", "Error message is not correct");
 });
 %}
 
@@ -71,9 +69,8 @@ x-api-key: dso4UMgSxh6cZx4ZfcW946r1ZpPN6Peu4MkUyHna
 content-type: application/json
 
 {
-  "qr_id": "1312312314klsdfs1",
+  "qr_id": "13123123141",
   "buyer_identification": "12345678",
-  "buyer_gender": "M",
   "buyer_id": "500",
   "seller_id": "2",
   "amount": 1000.00,
@@ -105,9 +102,8 @@ x-api-key: dso4UMgSxh6cZx4ZfcW946r1ZpPN6Peu4MkUyHna
 content-type: application/json
 
 {
-  "qr_id": "1312312314klsdfs1",
+  "qr_id": "13123123141",
   "buyer_identification": "12345678",
-  "buyer_gender": "M",
   "buyer_id": "1",
   "seller_id": "404",
   "amount": 1000.00,
@@ -126,7 +122,7 @@ content-type: application/json
 }
 
 > {%
-client.test("show error when buyer service fails", function() {
+client.test("show error when seller not found", function() {
   client.assert(response.status === 500, "Response status is not 500");
   client.assert(response.body.message === "error while retrieving seller", "Error message is not correct");
 });
@@ -139,9 +135,8 @@ x-api-key: dso4UMgSxh6cZx4ZfcW946r1ZpPN6Peu4MkUyHna
 content-type: application/json
 
 {
-  "qr_id": "1312312314klsdfs1",
+  "qr_id": "13123123141",
   "buyer_identification": "12345678",
-  "buyer_gender": "M",
   "buyer_id": "1",
   "seller_id": "3",
   "amount": 1000.00,
@@ -160,7 +155,7 @@ content-type: application/json
 }
 
 > {%
-client.test("show error when buyer service fails", function() {
+client.test("show error when authorization fails", function() {
   client.assert(response.status === 500, "Response status is not 500");
   client.assert(response.body.message === "Error while authorizing operation", "Error message is not correct");
 });

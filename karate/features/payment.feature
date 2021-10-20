@@ -11,9 +11,8 @@ Feature: process QR payment
     And request
     """
     {
-        "qr_id": "1312312314klsdfs1",
+        "qr_id": "13123123141",
         "buyer_identification": "12345678",
-        "buyer_gender": "M",
         "buyer_id": "1",
         "seller_id": "2",
         "amount": 1000.00,

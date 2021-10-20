@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: api-payments
+
+server:
+  servlet:
+    context-path: /api
+  port: 8080
+
+api:
+  baseUrl: https://gywtzf2kp3.execute-api.us-east-1.amazonaws.com/dev
+  headers:
+    x-api-key: dso4UMgSxh6cZx4ZfcW946r1ZpPN6Peu4MkUyHna

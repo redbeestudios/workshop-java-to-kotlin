@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.nerdearla.workshop.user.buyer.BuyerServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-10-14T20:18:38" hostname="lyoko" time="2.506">
+  <properties/>
+  <testcase name="get valid buyer" classname="com.nerdearla.workshop.user.buyer.BuyerServiceTest" time="2.44"/>
+  <testcase name="non existent user" classname="com.nerdearla.workshop.user.buyer.BuyerServiceTest" time="0.032"/>
+  <testcase name="not valid user" classname="com.nerdearla.workshop.user.buyer.BuyerServiceTest" time="0.024"/>
+  <system-out><![CDATA[17:18:36.949 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for BuyerClient name=#1
+17:18:37.947 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for BuyerValidator name=#2
+17:18:40.244 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for Buyer name=child of #1#3
+17:18:40.521 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for Unit name=child of #2#4
+17:18:40.556 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering Buyer(id=123, identification=40345654, enabled=true, name=Juan, lastName=Perez, email=juan.perez@mail.com, dateOfBirth=a date, address=Address(id=123, city=Ciudad Autonoma de Buenos Aires, country=Argentina, line1=Calle Falsa, line2=123, postalCode=1234, state=Buenos Aires)) on BuyerClient(#1).getBy(123)
+17:18:40.557 [pool-2-thread-1 @coroutine#4] INFO com.nerdearla.workshop.user.buyer.BuyerService - buyer found Buyer(id=123, identification=40345654, enabled=true, name=Juan, lastName=Perez, email=juan.perez@mail.com, dateOfBirth=a date, address=Address(id=123, city=Ciudad Autonoma de Buenos Aires, country=Argentina, line1=Calle Falsa, line2=123, postalCode=1234, state=Buenos Aires))
+17:18:40.567 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering kotlin.Unit on BuyerValidator(#2).validate(Buyer(id=123, identification=40345654, enabled=true, name=Juan, lastName=Perez, email=juan.perez@mail.com, dateOfBirth=a date, address=Address(id=123, city=Ciudad Autonoma de Buenos Aires, country=Argentina, line1=Calle Falsa, line2=123, postalCode=1234, state=Buenos Aires)))
+17:18:40.567 [pool-2-thread-1 @coroutine#4] INFO com.nerdearla.workshop.user.buyer.BuyerService - buyer 123 validated
+17:18:40.616 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for Buyer name=child of #1#5
+17:18:40.641 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.recording.states.AnsweringState - Throwing com.nerdearla.workshop.user.buyer.error.BuyerRetrievingError: 500 INTERNAL_SERVER_ERROR "error while retrieving buyer" on BuyerClient(#1).getBy(123)
+17:18:40.652 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for Buyer name=child of #1#6
+17:18:40.657 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.instantiation.AbstractMockFactory - Creating mockk for Unit name=child of #2#7
+17:18:40.664 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.recording.states.AnsweringState - Answering Buyer(id=123, identification=40345654, enabled=true, name=Juan, lastName=Perez, email=juan.perez@mail.com, dateOfBirth=a date, address=Address(id=123, city=Ciudad Autonoma de Buenos Aires, country=Argentina, line1=Calle Falsa, line2=123, postalCode=1234, state=Buenos Aires)) on BuyerClient(#1).getBy(123)
+17:18:40.664 [pool-2-thread-1 @coroutine#4] INFO com.nerdearla.workshop.user.buyer.BuyerService - buyer found Buyer(id=123, identification=40345654, enabled=true, name=Juan, lastName=Perez, email=juan.perez@mail.com, dateOfBirth=a date, address=Address(id=123, city=Ciudad Autonoma de Buenos Aires, country=Argentina, line1=Calle Falsa, line2=123, postalCode=1234, state=Buenos Aires))
+17:18:40.667 [pool-2-thread-1 @coroutine#4] DEBUG io.mockk.impl.recording.states.AnsweringState - Throwing com.nerdearla.workshop.user.buyer.error.DisabledBuyerError: 422 UNPROCESSABLE_ENTITY "buyer disabled" on BuyerValidator(#2).validate(Buyer(id=123, identification=40345654, enabled=true, name=Juan, lastName=Perez, email=juan.perez@mail.com, dateOfBirth=a date, address=Address(id=123, city=Ciudad Autonoma de Buenos Aires, country=Argentina, line1=Calle Falsa, line2=123, postalCode=1234, state=Buenos Aires)))
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
